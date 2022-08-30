@@ -1,0 +1,16 @@
+{
+  "name": "latex2pdf",
+  "version": "1.0.0",
+  "description": "Docker Image to convert LaTeX to PDF",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lenne.Tech GmbH",
+  "repository": "https://github.com/lenneTech/latex2pdf",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "node-latex": "3.1.0"
+  }
+}
