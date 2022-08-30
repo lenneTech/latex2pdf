@@ -32,7 +32,7 @@ Install docker:
 ```
 docker login --username=lennetech --password=PASSWORD
 docker buildx create --use
-docker buildx build --platform linux/amd64,linux/arm64 --push -t lennetech/node-chromium:latest .
+docker buildx build --platform linux/amd64,linux/arm64 --push -t lennetech/latex2pdf:latest .
 ```
 (see [How to build x86 (and others!) Docker images on an M1 Mac](https://jaimyn.com.au/how-to-build-multi-architecture-docker-images-on-an-m1-mac/))
 
