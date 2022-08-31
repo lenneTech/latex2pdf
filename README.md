@@ -2,35 +2,60 @@
 
 Docker Image to convert LaTeX to PDF
 
-## Build
+You can find this image in Docker Hub:
+https://hub.docker.com/repository/docker/lennetech/latex2pdf
+
+Integration in `docker-compose.yml`:
+```
+  latex2pdf:
+    image: lennetech/latex2pdf
+    ports:
+      - 80:80
+    volumes:
+      - /PATH_TO_ASSETS_DIR:/assets
+```
+and start with `docker-compse up`
+
+Usage via POST request with LaTeX in body:
+```
+curl --data-binary "@/path/to/latex/file" --output ./latex.pdf http://localhost
+```
+
+Assets (like images) can be integrated into the LaTeX document via /assets/PATH_TO_ASSET 
+(see values in docker-compose.yml).
+
+## Development & Deployment
+
+### Build
 ```
 docker build -t latex2pdf .
 ```
 
-## Run
+### Run
 
 Run with name
 ```
 docker run -dp 80:80 latex2pdf
 ```
 
-## Stop
+### Stop
 ```
 docker stop $(docker ps -a -q --filter ancestor=latex2pdf --format="{{.ID}}")
 ```
 
-## Stop and remove
+### Stop and remove
 ```
 docker rm $(docker stop $(docker ps -a -q --filter ancestor=latex2pdf --format="{{.ID}}"))
 ```
 
-## Build and push to Docker Hub
+### Build and push to Docker Hub
 
 Install docker:
 [https://docs.docker.com/get-started/#download-and-install-docker-desktop](https://docs.docker.com/get-started/#download-and-install-docker-desktop)
 
 ```
-docker login --username=lennetech --password=PASSWORD
+docker login --username=USERNAME
+    ENTER ACCESS_TOKEN
 docker buildx create --use
 docker buildx build --platform linux/amd64,linux/arm64 --push -t lennetech/latex2pdf:latest .
 ```
