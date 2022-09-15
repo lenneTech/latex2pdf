@@ -57,7 +57,8 @@ Install docker:
 docker login --username=USERNAME
     ENTER ACCESS_TOKEN
 docker buildx create --use
-docker buildx build --platform linux/amd64,linux/arm64 --push -t lennetech/latex2pdf:latest .
+docker buildx build --platform linux/amd64,linux/arm64 -t lennetech/latex2pdf:VERSION -t lennetech/latex2pdf:latest .
+docker push lennetech/latex2pdf --all-tags
 ```
 (see [How to build x86 (and others!) Docker images on an M1 Mac](https://jaimyn.com.au/how-to-build-multi-architecture-docker-images-on-an-m1-mac/))
 
