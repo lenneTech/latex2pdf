@@ -1,7 +1,7 @@
 FROM node:16-alpine
 
 # Install texlive
-RUN apk update && apk add texmf-dist texlive
+RUN apk update && apk add texmf-dist texlive-full
 
 # Install python
 RUN apk add g++ make py3-pip
